@@ -1,0 +1,23 @@
+server:
+  port: 8090
+  tomcat:
+    max-threads: 0
+    uri-encoding: UTF-8
+  session:
+    timeout: 30
+
+spring:
+  datasource:
+    url: jdbc:mysql://10.129.4.180:3306/im_chat
+    username: imchat
+    password: imchat
+    driverClassName: com.mysql.jdbc.Driver
+
+mybatis:
+#  mapper-locations: classpath* : resources/mapper/*.xml
+  type-aliases-package: com.beacon.imchat.domain
+
+logging:
+  level:
+    root: info
+

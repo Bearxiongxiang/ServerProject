@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beacon.imchat.mapper.EventMapper">
+    <resultMap id="BaseResultMap" type="com.beacon.imchat.domain.Event">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="ce_time" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="topic_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="content" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="location_sn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <select id="getEvents" resultType="com.beacon.imchat.domain.Event">
+        select * from test_event
+    </select>
+    <select id="getEventByName" resultType="com.beacon.imchat.domain.Event">
+        select event_id,event_name,subject_id,employee_id,create_time,content from event
+        where event_name = #{eventName}
+    </select>
+    <insert id="saveEvent">
+        insert into event(topic_id,content,location_sn,ce_time)
+        values (#{topicId},#{content},#{locationSn},#{ceTime})
+    </insert>
+    <update id="updateEvent">
+        update event set topic_id = #{topicId},content = #{content},location_sn = #{locationSn},ce_time=NOW()
+        where topic_id = #{topicId,jdbcType=VARCHAR}
+    </update>
+    <delete id="deleteEvent">
+        delete from event where topic_id = #{eventName,jdbcType=VARCHAR}
+    </delete>
+</mapper>

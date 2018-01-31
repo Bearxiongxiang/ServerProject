@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beacon.imchat.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.beacon.imchat.domain.Order">
+        <constructor>
+            <idArg column="event_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="describtion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="employee_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+
+
+</mapper>
